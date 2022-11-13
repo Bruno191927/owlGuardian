@@ -1,4 +1,5 @@
 const incident = (data) => ({
+    id:data._id,
     user:user(data.user),
     title:data.title,
     long:data.long,
