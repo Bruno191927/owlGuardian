@@ -3,6 +3,7 @@ const incident = (data) => ({
     user:user(data.user),
     title:data.title,
     timeOfIncident:data.timeOfIncident,
+    category:data.category,
     long:data.long,
     lat:data.lat,
     images:image(data.image),

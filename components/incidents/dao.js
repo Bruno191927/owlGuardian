@@ -6,6 +6,7 @@ exports.createIncident = async(data,id) => {
             user:id,
             title:data.title,
             timeOfIncident:data.timeOfIncident,
+            category:data.category,
             long:data.long,
             lat:data.lat,
             image:data.image,
