@@ -38,6 +38,7 @@ exports.getAllIncidents = () => {
     return new Promise(
         (resolve,reject) => incident
         .find()
+        .populate({path:'user',select:'documentNumber firstName lastName cellPhone email'})
         .exec((err,docs)=>{
             if(err) return reject(err);
             return resolve(docs);
