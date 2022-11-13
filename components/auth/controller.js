@@ -11,9 +11,14 @@ exports.signin = async(request,response) => {
         return response.status(400).json({msg:"El email esta en uso"});
     }
     else{
-        const newUser = await userDao.createUser(userData);
+
+        const document = await userDao.findUserByDocument(userData.documentNumber);
+        if(document){
+            return response.status(400).json({msg:"El email esta en uso"});
+        }
+        else{
+            const newUser = await userDao.createUser(userData);
         if(newUser){
-            
             const newUserData = userDto.user(newUser);
             const jwToken = jwt.sign(
                 {
@@ -26,9 +31,10 @@ exports.signin = async(request,response) => {
                 {expiresIn:process.env.EXPIRATION}
             );
             return response.send(userDto.authData(jwToken,process.env.EXPIRATION));
-        }
-        else{
-            response.status(400).json({msg:"Ocurrio un erro al crear el usuario"});
+            }
+            else{
+                response.status(400).json({msg:"Ocurrio un erro al crear el usuario"});
+            }
         }
     }
 }

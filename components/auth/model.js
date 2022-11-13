@@ -4,8 +4,7 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true,
         unique:true
-    },
-    lastName:{
+    },password:{
         type:String,
         default:''
     },
@@ -13,10 +12,22 @@ const userSchema = new mongoose.Schema({
         type:String,
         default:''
     },
-    password:{
+    lastName:{
         type:String,
         default:''
-    }
+    },
+    cellPhone:{
+        type:String,
+        default:''
+    },
+    documentType:{
+        type:String,
+        default:''
+    },
+    documentNumber:{
+        type:String,
+        default:''
+    },
 },{
     timestamps:true
 });

@@ -1,0 +1,35 @@
+const incident = (data) => ({
+    user:user(data.user),
+    title:data.title,
+    long:data.long,
+    lat:data.lat,
+    locationRef:data.locationRef,
+    images:imageList(data.images),
+    description:data.description,
+    createdAt:data.createdAt,
+    updatedAt:data.updatedAt
+});
+
+const user = (data) => ({
+    id:data._id,
+    email:data.email,
+    firstName:data.firstName,
+    lastName:data.lastName,
+    cellPhone:data.cellPhone,
+    documentType:data.documentType,
+    documentNumber:data.documentNumber
+})
+
+const image = (data) => ({
+    id:data._id,
+    imgLink:data.imgLink,
+    imgId:data.imgId
+});
+
+const incidentList = (resources) =>resources.map((resource)=>incident(resource));
+
+const imageList = (resources) => resources.map((resource)=>image(resource));
+module.exports = {
+    incident,
+    incidentList
+}

@@ -6,9 +6,12 @@ exports.createUser = async(data) => {
         (resolve,reject)=> User
         .create({
             email:data.email,
+            password:bcrypt.hashSync(data.password,10),
             firstName:data.firstName,
             lastName:data.lastName,
-            password:bcrypt.hashSync(data.password,10),
+            cellPhone:data.cellPhone,
+            documentType:data.documentType,
+            documentNumber:data.documentNumber
         },(err,doc)=> {
             if(err) return reject(err);
             return resolve(doc);
@@ -42,6 +45,17 @@ exports.findUserByEmail = async(email) => {
     return new Promise(
         (resolve,reject)=>User
         .findOne({"email":email})
+        .exec((err,doc)=>{
+            if(err) return reject(err);
+            return resolve(doc);
+        })
+    );
+}
+
+exports.findUserByDocument = async(document) => {
+    return new Promise(
+        (resolve,reject)=>User
+        .findOne({"documentNumber":document})
         .exec((err,doc)=>{
             if(err) return reject(err);
             return resolve(doc);
