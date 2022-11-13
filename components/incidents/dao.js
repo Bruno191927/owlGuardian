@@ -7,8 +7,7 @@ exports.createIncident = async(data,id) => {
             title:data.title,
             long:data.long,
             lat:data.lat,
-            locationRef:data.locationRef,
-            images:data.images,
+            image:data.image,
             description:data.description
         },(err,doc)=> {
             if(err) return reject(err);
@@ -25,7 +24,7 @@ exports.updateIncident = async(data) => {
                 long:data.long,
                 lat:data.lat,
                 locationRef:data.locationRef,
-                images:data.images,
+                image:data.image,
                 description:data.description
             }
         }).exec((err,doc)=>{

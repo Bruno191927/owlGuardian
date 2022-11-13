@@ -18,22 +18,20 @@ const incidentSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
-    locationRef:{
+    category:{
         type:String,
-        default:''
+        default:'',
     },
-    images:[
-        {
-            imgId:{
-                type:String,
-                default:'No Image'
-            },
-            imgLink:{
-                type:String,
-                default:'No Image'
-            }
+    image:{
+        imgId:{
+            type:String,
+            default:'No Image'
+        },
+        imgLink:{
+            type:String,
+            default:'No Image'
         }
-    ],
+    },
     description:{
         type:String,
         default:''

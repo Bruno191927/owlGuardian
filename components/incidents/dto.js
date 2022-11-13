@@ -3,8 +3,7 @@ const incident = (data) => ({
     title:data.title,
     long:data.long,
     lat:data.lat,
-    locationRef:data.locationRef,
-    images:imageList(data.images),
+    images:image(data.image),
     description:data.description,
     createdAt:data.createdAt,
     updatedAt:data.updatedAt
@@ -21,7 +20,6 @@ const user = (data) => ({
 })
 
 const image = (data) => ({
-    id:data._id,
     imgLink:data.imgLink,
     imgId:data.imgId
 });
