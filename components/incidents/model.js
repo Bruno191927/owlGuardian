@@ -6,6 +6,10 @@ const incidentSchema = new mongoose.Schema({
         required:true,
         ref:'User'
     },
+    timeOfIncident:{
+        type:String,
+        default:''
+    },
     title:{
         type:String,
         required:true

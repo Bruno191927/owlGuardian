@@ -5,6 +5,7 @@ exports.createIncident = async(data,id) => {
         (resolve,reject) => incident.create({
             user:id,
             title:data.title,
+            timeOfIncident:data.timeOfIncident,
             long:data.long,
             lat:data.lat,
             image:data.image,
